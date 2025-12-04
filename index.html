@@ -1,0 +1,194 @@
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>DDGS: Depth-and-Density Guided Gaussian Splatting for Stable and Accurate Sparse-View Reconstruction</title>
+        <link rel="icon" href="favicon.png">
+        <link rel="stylesheet" href="fonts/avenir-next/stylesheet.css">
+        <link rel="stylesheet" href="fonts/segoe-print/stylesheet.css">
+        <link rel="stylesheet" href="css/carousel.css">
+        <link rel="stylesheet" href="icons/style.css">
+        <link rel="stylesheet" href="css/selection_panel.css">
+        <link rel="stylesheet" href="css/main.css">
+        <script src="js/carousel.js"></script>
+        <script src="js/selection_panel.js"></script>
+        <script src="js/generation.js"></script>
+        <script src="js/application.js"></script>
+        <script src="js/main.js"></script>
+        <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+        <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+        <script>
+        window.MathJax = {
+            tex: {
+                inlineMath: [['$', '$'], ['\\(', '\\)']],
+                displayMath: [['$$', '$$'], ['\\[', '\\]']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            options: {
+                skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+            }
+        };
+        </script>
+    </head>
+    <body>
+        <div id="main">
+            <div id="top-gif" style="width: 100%; text-align: center; margin-bottom: 20px;">
+                <img src="assets/top.webp" alt="Top Animation" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+            <div id="title" class="x-gradient-font">
+                <span style="font-size: 37px;">D<sup>2</sup>GS: Depth-and-Density Guided Gaussian Splatting for Stable and Accurate Sparse-View Reconstruction</span>
+            </div>
+            <div id="authors">
+                <div>Meixi Song</a><sup>1,2</sup></div>
+                <div>Xin Lin</a><sup>3</sup></div>
+                <div>Dizhe Zhang</a><sup>1 </sup></div>
+                <div>Haodong Li</a><sup>3</sup></div>
+                <div>Xiangtai Li</a><sup>4</sup></div>
+                <div>Bo Du</a><sup>5</sup></div>
+                <div><a class="link" href="https://scholar.google.com.hk/citations?user=SSI90d4AAAAJ&hl=en&oi=ao">Lu Qi</a><sup>1,5</sup></div>
+            </div>
+            <div id="institution">
+                <div><sup>1</sup><a class="link" href="https://www.insta360.com/cn/">Insta360 Research</a></div>
+                <div><sup>2</sup><a class="link" href="https://www.tsinghua.edu.cn/en/">Tsinghua University</a></div>
+                <div><sup>3</sup><a class="link" href="https://ucsd.edu/">University of California San Diego</a></div>
+                <div><sup>4</sup><a class="link" href="https://www.ntu.edu.sg/">Nanyang Technological University</a></div>
+                <div><sup>5</sup><a class="link" href="https://admission.whu.edu.cn/">Wuhan University</a></div>
+            </div>
+            <div id="links">
+                <div><a id="arxiv" href="#arxiv">Arxiv</a></div>
+                <div><a id="code" href="https://github.com/Insta360-Research-Team/DDGS">Code</a></div>
+            </div>
+            <div id="video-comparison" style="display: flex; justify-content: space-between; gap: 15px; margin: 30px 0; width: 100%;">
+                <div style="flex: 1; text-align: center;">
+                    <h4 style="margin-bottom: 10px; font-size: 16px; font-weight: 600;">CoR-GS</h4>
+                    <video autoplay loop muted controls style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <source src="assets/trex_corgs.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div style="flex: 1; text-align: center;">
+                    <h4 style="margin-bottom: 10px; font-size: 16px; font-weight: 600;">DropGaussian</h4>
+                    <video autoplay loop muted controls style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <source src="assets/trex_dropgs.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+                <div style="flex: 1; text-align: center;">
+                    <h4 style="margin-bottom: 10px; font-size: 16px; font-weight: 600;">Ours (D²GS)</h4>
+                    <video autoplay loop muted controls style="width: 100%; height: auto; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1);">
+                        <source src="assets/trex_ours.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+            <div id="teaser">
+                <div style="width: 100%;"><img src="assets/teaser.png" alt="TRELLIS Teaser" style="width: 100%; height: auto;"></div>
+            </div>
+            <div id="abstract" class="x-gradient-block">
+                Recent advances in 3D Gaussian Splatting (3DGS) enable real-time, high-fidelity novel view synthesis (NVS) with explicit 3D representations. However, performance degradation and instability remain significant under sparse-view conditions. In this work, we identify two key failure modes under sparse-view conditions: overfitting in regions with excessive Gaussian density near the camera, and underfitting in distant areas with insufficient Gaussian coverage. To address these challenges, we propose a unified framework D<sup>2</sup>GS, comprising two key components: a Depth-and-Density Guided Dropout strategy that suppresses overfitting by adaptively masking redundant Gaussians based on density and depth, and a Distance-Aware Fidelity Enhancement module that improves reconstruction quality in under-fitted far-field areas through targeted supervision. Moreover, we introduce a new evaluation metric to quantify the stability of learned Gaussian distributions, providing insights into the robustness of the sparse-view 3DGS. Extensive experiments on multiple datasets demonstrate that our method significantly improves both visual quality and robustness under sparse view conditions. The source code and trained models will be made publicly available.
+            </div>
+
+            <div class="x-section-title"><div class="x-gradient-font">Qualitative Evaluation <span style="font-size: 40px; font-weight:600;">|</span> LLFF dataset</div></div>
+            <p>Qualitative Comparison on LLFF dataset with 3-view and 6-view. Comparisons were conducted with 3DGS, CoR-GS, DropGaussian. </p>
+            <div id="results-llff-carousel"></div>
+
+            <div class="x-section-title"><div class="x-gradient-font">Qualitative Evaluation <span style="font-size: 40px; font-weight:600;">|</span> MipNeRF360 dataset</div></div>
+            <p>Qualitative Comparison on MipNeRF360 dataset with 12-view. Comparisons were conducted with 3DGS, CoR-GS, DropGaussian.</p>
+            <div style="display: flex; justify-content: center; margin: 20px 0;">
+                <div class="x-card" style="min-width: 400px; margin: 10px;">
+                    <div style="width: 100%; text-align: center;">
+                        <img src="assets/MIP12.png" alt="Qualitative Comparison on MipNeRF360 dataset with 12-view" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                    <div class="caption" style="text-align: center; margin-top: 10px;">
+                        <div style="font-weight: 600; font-size: 16px;">
+                            Qualitative Comparison on MipNeRF360 dataset with 12-view
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="x-section-title"><div class="x-gradient-font">Quantitative Evaluation <span style="font-size: 40px; font-weight:600;">|</span> LLFF dataset</div></div>
+            <p>Performance comparisons of sparse-view synthesis on LLFF dataset.</p>
+            <div style="width: 100%; text-align: center; margin: 20px 0;">
+                <img src="assets/llff.jpg" alt="Performance comparisons of sparse-view synthesis on LLFF dataset" style="width: 100%; max-width: 800px; height: auto;">
+            </div>
+
+            <div class="x-section-title"><div class="x-gradient-font">Quantitative Evaluation <span style="font-size: 40px; font-weight:600;">|</span> MipNeRF360 dataset</div></div>
+            <p>Performance comparisons of sparse-view synthesis on MipNeRF360 dataset.</p>
+            <div style="width: 100%; text-align: center; margin: 20px 0;">
+                <img src="assets/mip.jpg" alt="Performance comparisons of sparse-view synthesis on MipNeRF360 dataset" style="width: 90%; max-width: 700px; height: auto;">
+            </div>
+
+            <div class="x-section-title"><div class="x-gradient-font">Methodology</div></div>
+            <p>
+                <img src="assets/pipeline.png" alt="Pipeline of the method" style="width: 100%;">
+            </p>
+            <p>
+                The proposed D<sup>2</sup>GS mainly consists of two key components: a
+                <strong>D</strong>epth-and-<strong>D</strong>ensity guided <strong>D</strong>ropout (DD-Drop) mechanism and
+                <strong>D</strong>istance-<strong>A</strong>ware <strong>F</strong>idelity <strong>E</strong>nhancement (DAFE), to improve the stability and spatial completeness of scene reconstruction under sparse-view settings.
+                DD-Drop assigns each Gaussian a dropout score based on local density and camera distance, indicating regions prone to overfitting. High-scoring Gaussians would be dropped with a higher probability to suppress aliasing and improve rendering fidelity.
+                In addition, DAFE avoids underfitting by boosting supervision in distant regions using depth priors.
+            </p>
+
+            <div class="x-section-title"><div class="x-gradient-font">Inter-Model Robustness <span style="font-size: 40px; font-weight:600;">|</span> LLFF dataset</div></div>
+            <p>Repeated training using the same algorithm and configuration can produce results with considerable variance, leading to large discrepancies in rendering quality. This highlights the importance of quantifying the divergence among independently trained models under identical settings to assess model robustness. To this end, we propose Inter-Model Robustness (IMR), a novel metric specifically designed for 3DGS, grounded in the theory of 2-Wasserstein Distance and Optimal Transport (OT) over Gaussian point clouds. </p>
+            
+            <div class="math-content" style="margin: 20px 0; font-size: 16px; line-height: 1.6;">
+                <p>Let ${G}_1, {G}_2, \ldots, {G}_n$ denote $n$ independently trained 3DGS models, where each model ${G}_i$ consists of $K_i$ Gaussian primitives:</p>
+                $$
+                {G}_i = \{({m}_{i,j}, {s}_{i,j}, {q}_{i,j}, \alpha_{i,j}, {f}_{i,j})\}_{j=1}^{K_i}.
+                $$
+                
+                <p>To enable robustness analysis, each model is abstracted as a Gaussian mixture distribution:</p>
+                $$
+                G_i = \sum_{j=1}^{K_i} w_{i,j} \cdot N(m_{i,j}, \Sigma_{i,j}),
+                \quad w_{i,j} = \frac{\alpha_{i,j}}{\sum_{k=1}^{K_i} \alpha_{i,k}}.
+                $$
+                
+                <p>To quantify the difference between two such Gaussian mixtures, we employ 2-Wasserstein distance. For two Gaussian distributions $\mu_1 = {N}({m}_1, {\Sigma}_1)$ and $\mu_2 = {N}({m}_2, {\Sigma}_2)$, the Wasserstein distance admits a closed-form via the Bures metric:</p>
+                $$
+                W_2^2(\mu_1, \mu_2) = \|m_1 - m_2\|^2 + \text{tr}(\Sigma_1 + \Sigma_2 - 2(\Sigma_2^\frac{1}{2} \Sigma_1 \Sigma_2^\frac{1}{2})^\frac{1}{2}).
+                $$
+                
+                <p>To avoid expensive matrix square roots and improve numerical stability, we approximate the Bures shape term via a first-order Taylor expansion, resulting in following expression:</p>
+                $$
+                \tilde W_2^{2}(\mu_1,\mu_2) =\| m_1- m_2\|^{2} +\frac14\,\operatorname{tr}\!\bigl((\Sigma_1-\Sigma_2)\Sigma_2^{-1}(\Sigma_1-\Sigma_2)\bigr)
+                $$
+                
+                <p>Let ${G}_1$ and ${G}_2$ denote two 3DGS models. The corresponding mixture Wasserstein distance is then formulated as an OT problem over the Gaussian components:</p>
+                $$
+                \mathrm{MW}_2^2(G_1, G_2) = \min_{\gamma \ge 0} \sum_{i=1}^{K_1} \sum_{j=1}^{K_2} \gamma_{ij} \tilde W_2^2(\mu_{1,i}, \mu_{2,j}), \quad \text{s.t.} \quad
+                \sum_j \gamma_{ij} = w_{1,i}, \quad \sum_i \gamma_{ij} = w_{2,j}.
+                $$
+                
+                <p>This formulation performs <strong>soft structure-aware alignment</strong> established by the optimal transport plan $\gamma \in {R}^{K_1 \times K_2}$, eliminating the need for explicit correspondence. To compute the distance at scale, we introduce entropic regularization and solve the relaxed problem using the Sinkhorn algorithm:</p>
+                $$
+                \mathrm{MW}_{2,\varepsilon}^2(G_1, G_2) = \min_{\gamma} \sum_{i,j} \gamma_{ij} C_{ij} + \varepsilon \sum_{i,j} \gamma_{ij} \log \gamma_{ij}.
+                $$
+                
+                <p>Let $S_{ij} = \text{MW}_2^2({G}_i, {G}_j)$ denote the pairwise distances between $N$ independently trained models. Finally, we define the Inter-model Robustness (IMR) metric as the logarithmic ratio of the second moment to the first moment of the pairwise distances:</p>
+                $$
+                \text{IMR}= \ln\left(\frac{\sum_{1\leq i&lt;j \leq N} S_{ij}^2}{\sum_{1\leq i&lt;j\leq N} S_{ij}}\right)
+                $$
+                
+            </div>
+            
+            <div id="results-imr-selection"></div>
+
+
+            <!-- <div class="x-section-title"><div class="x-gradient-font">Citation</div></div>
+            <p>
+                If you find our work useful, please consider citing:
+            </p>
+            <p class="bibtex x-gradient-block"> -->
+
+        </div>
+        <div id="bottombar">
+            <div class="row">
+                <div style="text-align: center; width: 100%;"><span style="font-size: 18px; font-weight: 500;">D<sup>2</sup>GS: Depth-and-Density Guided Gaussian Splatting for Stable and Accurate Sparse-View Reconstruction</span></div>
+            </div>
+        </div>
+    </body>
+</html>
