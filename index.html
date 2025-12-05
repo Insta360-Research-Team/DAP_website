@@ -97,8 +97,27 @@
                     <div style="width: 100%; text-align: center;">
                         <img src="assets/pipeline-2.pdf" alt="" style="width: 100%; height: auto; border-radius: 8px;">
                     </div>
+                    <div style="width: 100%; text-align: center; font-size: 18px; margin-top: 10px; line-height: 1.45;">
+                        <strong>Overview of the proposed progressive three-stage pipeline.</strong>
+                        Stage 1 trains a <strong>Scene-Invariant Labeler</strong> on high-quality synthetic indoor and outdoor data 
+                        to provide strong initialization. Stage 2 introduces a <strong>Realism-Invariant Labeler</strong>, 
+                        where a PatchGAN-based discriminator selects 300K indoor and 300K outdoor high-confidence pseudo-labeled 
+                        samples to mitigate domain gaps between synthetic and real data. Stage 3 performs <strong>DAP</strong> training 
+                        on all labeled and pseudo-labeled data, enabling large-scale semi-supervised learning and strong generalization 
+                        across real-world panoramic scenes.
+                    </div>
                     <div style="width: 100%; text-align: center;">
                         <img src="assets/depth_framework.pdf" alt="" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+
+                    <div style="width: 100%; text-align: center; font-size: 18px; margin-top: 10px; line-height: 1.45;">
+                        <strong>Architecture of the proposed DAP network.</strong> 
+                        Built upon DINOv3-Large as the visual backbone, our model adopts a distortion-aware depth decoder 
+                        and a plug-and-play range mask head for adaptive distance control across diverse scenes. 
+                        Training is guided by multi-level geometric and sharpness-aware losses, including 
+                        <strong>LSILog</strong>, <strong>LDF</strong>, <strong>Lgrad</strong>, <strong>Lnormal</strong>, and <strong>Lpts</strong>, ensuring metric accuracy, 
+                        edge fidelity, and geometric consistency in panoramic depth estimation.
+                    
                     </div>
                 </div>
             </div>
