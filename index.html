@@ -54,7 +54,7 @@
                 <div><sup>1</sup><a class="link" href="https://www.insta360.com/cn/">Insta360 Research</a></div>
                 <div><sup>2</sup><a class="link" href="https://ucsd.edu/">University of California San Diego</a></div>
                 <div><sup>3</sup><a class="link" href="https://admission.whu.edu.cn/">Wuhan University</a></div>
-                <div><sup>4</sup><a class="link" href="https://www.ucmerced.edu/">">University of California, Merced</a></div>
+                <div><sup>4</sup><a class="link" href="https://www.ucmerced.edu/">University of California, Merced</a></div>
             </div>
             <div id="links">
                 <div><a id="arxiv" href="#arxiv">Arxiv</a></div>
@@ -87,7 +87,7 @@
                 <div style="width: 100%;"><img src="assets/teaser.png" alt="TRELLIS Teaser" style="width: 100%; height: auto;"></div>
             </div>
             <div id="abstract" class="x-gradient-block">
-                Recent advances in 3D Gaussian Splatting (3DGS) enable real-time, high-fidelity novel view synthesis (NVS) with explicit 3D representations. However, performance degradation and instability remain significant under sparse-view conditions. In this work, we identify two key failure modes under sparse-view conditions: overfitting in regions with excessive Gaussian density near the camera, and underfitting in distant areas with insufficient Gaussian coverage. To address these challenges, we propose a unified framework D<sup>2</sup>GS, comprising two key components: a Depth-and-Density Guided Dropout strategy that suppresses overfitting by adaptively masking redundant Gaussians based on density and depth, and a Distance-Aware Fidelity Enhancement module that improves reconstruction quality in under-fitted far-field areas through targeted supervision. Moreover, we introduce a new evaluation metric to quantify the stability of learned Gaussian distributions, providing insights into the robustness of the sparse-view 3DGS. Extensive experiments on multiple datasets demonstrate that our method significantly improves both visual quality and robustness under sparse view conditions. The source code and trained models will be made publicly available.
+                In this work, we present a panoramic metric depth foundation model that generalizes across diverse scene distances. We explore a data-in-the-loop paradigm from the view of both data construction and framework design. We collect a large-scale dataset by combining public datasets, high-quality synthetic data from our UE5 simulator and text-to-image models, and real panoramic images from the web. To reduce domain gaps between indoor/outdoor and synthetic/real data, we introduce a three-stage pseudo-label curation pipeline to generate reliable ground truth for unlabeled images. For the model, we adopt DINOv3-Large as the backbone for its strong pre-trained generalization, and introduce a plug-and-play range mask head, sharpness-centric optimization, and geometry-centric optimization to improve robustness to varying distances and enforce geometric consistency across views. Experiments on multiple benchmarks (e.g., Stanford2D3D, Matterport3D, and Deep360) demonstrate strong performance and zero-shot generalization, with particularly robust and stable metric predictions in diverse real-world scenes. .
             </div>
 
             <div class="x-section-title"><div class="x-gradient-font">Qualitative Evaluation <span style="font-size: 40px; font-weight:600;">|</span> LLFF dataset</div></div>
