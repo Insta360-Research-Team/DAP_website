@@ -87,30 +87,31 @@
                 In this work, we present a panoramic metric depth foundation model that generalizes across diverse scene distances. We explore a data-in-the-loop paradigm from the view of both data construction and framework design. We collect a large-scale dataset by combining public datasets, high-quality synthetic data from our UE5 simulator and text-to-image models, and real panoramic images from the web. To reduce domain gaps between indoor/outdoor and synthetic/real data, we introduce a three-stage pseudo-label curation pipeline to generate reliable ground truth for unlabeled images. For the model, we adopt DINOv3-Large as the backbone for its strong pre-trained generalization, and introduce a plug-and-play range mask head, sharpness-centric optimization, and geometry-centric optimization to improve robustness to varying distances and enforce geometric consistency across views. Experiments on multiple benchmarks (e.g., Stanford2D3D, Matterport3D, and Deep360) demonstrate strong performance and zero-shot generalization, with particularly robust and stable metric predictions in diverse real-world scenes. .
             </div>
 
-            <div style="width: 90vw; margin-left: auto; margin-right: auto;">
-                
-                <div class="x-section-title">
-                    <div class="x-gradient-font">
-                        Qualitative Evaluation <span style="font-size: 40px; font-weight:600;">|</span> Open-world
-                    </div>
-                </div>
-            
-                <div class="x-card" style="margin: 20px auto;">
-                    <img src="assets/compare_real2.pdf" alt="" style="width: 100%; height: auto; border-radius: 8px;">
-                </div>
-            
-                
-                <div class="x-section-title" style="margin-top: 50px;">
-                    <div class="x-gradient-font">
-                        Qualitative Evaluation <span style="font-size: 40px; font-weight:600;">|</span> Synthetic
-                    </div>
-                </div>
-            
-                <div class="x-card" style="margin: 20px auto;">
-                    <img src="assets/compare_synthetic2.pdf" alt="" style="width: 100%; height: auto; border-radius: 8px;">
-                </div>
-            
+            <div class="x-section-title">
+                <div class="x-gradient-font">Qualitative Evaluation <span style="font-size: 40px; font-weight:600;">|</span> Open-world </div>
             </div>
+            
+            <div style="display: flex; justify-content: center; margin: 20px 0;">
+                <div class="x-card" style="width: 100%; max-width: 1200px; margin: 10px auto;">
+                    <div style="width: 100%; text-align: center;">
+                        <img src="assets/compare_real2.pdf" alt="" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+            
+            
+            <div class="x-section-title">
+                <div class="x-gradient-font">Qualitative Evaluation <span style="font-size: 40px; font-weight:600;">|</span></div>
+            </div>
+            
+            <div style="display: flex; justify-content: center; margin: 20px 0;">
+                <div class="x-card" style="width: 100%; max-width: 1200px; margin: 10px auto;">
+                    <div style="width: 100%; text-align: center;">
+                        <img src="assets/compare_synthetic2.pdf" alt="" style="width: 100%; height: auto; border-radius: 8px;">
+                    </div>
+                </div>
+            </div>
+
 
         
 
