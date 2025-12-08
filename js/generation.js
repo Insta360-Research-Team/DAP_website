@@ -12,9 +12,10 @@ var llff_items = [
 
 
 function llff_carousel_item_template(item) {
-    return `<div class="x-card" style="min-width: 400px; margin: 10px;">
-                <div style="width: 100%; text-align: center;">
-                    <img src="assets/${item.image}" alt="${item.title}" style="width: 100%; height: auto; border-radius: 8px;">
-                </div>
-            </div>`;
+    return `
+        <div class="x-card" style="min-width: 400px; margin: 10px;">
+            <div style="width: 100%; text-align: center;">
+                <img src="assets/${item.image}" alt="" style="width: 100%; height: auto; border-radius: 8px;">
+            </div>
+        </div>`;
 }
