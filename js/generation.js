@@ -1,6 +1,6 @@
 var llff_items = [
     { image: "zhuan00.png", title: "Qualitative Comparison on LLFF dataset with 3-view", description: "Qualitative Comparison on LLFF dataset with 3-view" },
-    { image: "zhuan01.png", title: "Qualitative Comparison on LLFF dataset with 3-view", description: "Qualitative Comparison on LLFF dataset with 3-view" },
+    { image: "zhuan01.png", title: "Qualitative Comparison on LLFF dataset with 6-view", description: "Qualitative Comparison on LLFF dataset with 6-view" },
     { image: "zhuan02.png", title: "Qualitative Comparison on LLFF dataset with 3-view", description: "Qualitative Comparison on LLFF dataset with 3-view" },
     { image: "zhuan03.png", title: "Qualitative Comparison on LLFF dataset with 3-view", description: "Qualitative Comparison on LLFF dataset with 3-view" },
     { image: "zhuan04.png", title: "Qualitative Comparison on LLFF dataset with 3-view", description: "Qualitative Comparison on LLFF dataset with 3-view" },
