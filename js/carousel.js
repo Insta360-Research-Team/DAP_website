@@ -48,12 +48,18 @@ function carousel_render(carousel_id) {
         let item = slider.children[i];
         let info = { item_idx: item_idx, page_idx: current_page, display_idx: i };
         if (item_idx < carousel_objects[carousel_id].items.length) {
-            item.innerHTML = carousel_objects[carousel_id].item_template(carousel_objects[carousel_id].items[item_idx], info);
+            item.innerHTML = carousel_objects[carousel_id].item_template(
+                carousel_objects[carousel_id].items[item_idx],
+                info
+            );
+            // 👇 把任何“undefined”文本都删掉，双保险
+            item.innerHTML = item.innerHTML.replace(/undefined/g, "");
         } else {
             item.innerHTML = "";
         }
     }
 }
+
 
 
 function carousel_page(carousel_id, page) {
