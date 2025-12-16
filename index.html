@@ -17,6 +17,25 @@
         <script src="js/generation.js"></script>
         <script src="js/application.js"></script>
         <script src="js/main.js"></script>
+        <script>
+        // 视频背景切换功能
+        document.addEventListener('DOMContentLoaded', function() {
+            const videos = [
+                'assets/result_half_outdoor_1_15s.mp4',
+                'assets/result_half_outdoor_15s.mp4'
+            ];
+            let currentVideoIndex = 0;
+            const videoElement = document.getElementById('hero-video');
+            
+            if (videoElement) {
+                videoElement.addEventListener('ended', function() {
+                    currentVideoIndex = (currentVideoIndex + 1) % videos.length;
+                    videoElement.src = videos[currentVideoIndex];
+                    videoElement.play();
+                });
+            }
+        });
+        </script>
         <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
         <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
         <script>
@@ -34,78 +53,83 @@
         </script>
     </head>
     <body>
+        <!-- 全屏视频背景英雄区 -->
+        <div id="hero-section">
+            <!-- 视频背景 -->
+            <video id="hero-video" autoplay muted loop playsinline>
+                <source src="assets/result_half_outdoor_1_15s.mp4" type="video/mp4">
+            </video>
+            
+            <!-- 半透明遮罩层 -->
+            <div id="hero-overlay"></div>
+            
+            <!-- 标题内容 -->
+            <div id="hero-content">
+                <div style="text-align: center; font-family: Arial, sans-serif; width: 100%; overflow-x: hidden;">
+                    <!-- 大标题 -->
+                    <div style="
+                        font-size: 90px;
+                        font-weight: bold;
+                        color: #ffffff;
+                        margin-bottom: 25px;
+                        text-shadow: 2px 2px 8px rgba(0,0,0,0.8);
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                        max-width: 100%;
+                    ">
+                        Depth Any Panoramas
+                    </div>
+
+                    <!-- 副标题 -->
+                    <div style="
+                        font-size: 50px;
+                        color: #f0f0f0;
+                        line-height: 1.4;
+                        text-shadow: 2px 2px 6px rgba(0,0,0,0.8);
+                        margin-bottom: 15px;
+                        word-wrap: break-word;
+                        overflow-wrap: break-word;
+                        max-width: 100%;
+                    ">
+                        A Foundation Model for Panoramic Depth Estimation
+                    </div>
+                </div>
+
+                <div id="authors">
+                    <div>
+                        <a class="link" href="https://linxin0.github.io">Xin Lin</a><sup>2</sup>
+                        <a class="link" href="https://insta360-research-team.github.io/DAP_website">Meixi Song</a><sup>1</sup>
+                        <a class="link" href="https://insta360-research-team.github.io/DAP_website">Dizhe Zhang</a><sup>1 </sup>
+                        <a class="link" href="https://insta360-research-team.github.io/DAP_website">Wenxuan Lu</a><sup>1 </sup>
+                        <a class="link" href="https://haodong2000.github.io">Haodong Li</a><sup>2</sup>
+                    </div>
+                    <div>
+                        <a class="link" href="https://insta360-research-team.github.io/DAP_website">Bo Du</a><sup>3</sup>
+                        <a class="link" href="https://faculty.ucmerced.edu/mhyang/">Ming-Hsuan Yang</a><sup>4</sup>
+                        <a class="link" href="https://jacobsschool.ucsd.edu/people/profile/truong-q-nguyen">Truong Nguyen</a><sup>2</sup>
+                        <a class="link" href="https://scholar.google.com.hk/citations?user=SSI90d4AAAAJ&hl=en&oi=ao">Lu Qi</a><sup>1,3</sup>
+                    </div>
+                </div>
+                <div id="institution">
+                    <div><sup>1</sup><a class="link" href="https://www.insta360.com/cn/">Insta360 Research</a></div>
+                    <div><sup>2</sup><a class="link" href="https://ucsd.edu/">University of California San Diego</a></div>
+                    <div><sup>3</sup><a class="link" href="https://admission.whu.edu.cn/">Wuhan University</a></div>
+                    <div><sup>4</sup><a class="link" href="https://www.ucmerced.edu/">University of California, Merced</a></div>
+                </div>
+                <div id="links">
+                    <div><a id="arxiv" href="#arxiv">Arxiv</a></div>
+                    <div><a id="code" href="https://github.com/Insta360-Research-Team/DAP">Code</a></div>
+                </div>
+            </div>
+        </div>
+        
         <div id="main">
-            <div style="text-align: center; font-family: Arial, sans-serif;">
-    <!-- 大标题 -->
-    <div style="
-        font-size: 60px;
-        font-weight: bold;
-        background: linear-gradient(90deg, #6c57ff, #a46bff);
-        -webkit-background-clip: text;
-        color: transparent;
-        margin-bottom: 15px;
-    ">
-        Depth Any Panoramas
-    </div>
-
-    <!-- 副标题 -->
-    <div style="
-        font-size: 34px;
-        background: linear-gradient(90deg, #4286f4, #ff946c);
-        -webkit-background-clip: text;
-        color: transparent;
-        line-height: 1.3;
-    ">
-        A Foundation Model for Panoramic Depth Estimation
-    </div>
-</div>
-
-
-            <div id="authors">
-                <div>
-                    <a class="link" href="https://linxin0.github.io">Xin Lin</a><sup>2</sup>
-                    <a class="link" href="https://insta360-research-team.github.io/DAP_website">Meixi Song</a><sup>1</sup>
-                    <a class="link" href="https://insta360-research-team.github.io/DAP_website">Dizhe Zhang</a><sup>1 </sup>
-                    <a class="link" href="https://insta360-research-team.github.io/DAP_website">Wenxuan Lu</a><sup>1 </sup>
-                    <a class="link" href="https://haodong2000.github.io">Haodong Li</a><sup>2</sup>
+            <div id="teaser">
+                <div style="width: 100%;"><img src="assets/depth_teaser.png" alt="Depth Teaser" style="width: 100%; height: auto;"></div>
+                <div class="teaser-caption">
+                    <strong>Metric depth visualizations generated by DAP from diverse panoramic inputs.</strong>
+                    For clarity, each depth map is displayed using its own adaptive truncation range. DAP achieves robust, metrically consistent panoramic depth across diverse real-world scenes, highlighting the power of large-scale data and model designing.
                 </div>
-                <div>
-                    <a class="link" href="https://insta360-research-team.github.io/DAP_website">Bo Du</a><sup>3</sup>
-                    <a class="link" href="https://faculty.ucmerced.edu/mhyang/">Ming-Hsuan Yang</a><sup>4</sup>
-                    <a class="link" href="https://jacobsschool.ucsd.edu/people/profile/truong-q-nguyen">Truong Nguyen</a><sup>2</sup>
-                    <a class="link" href="https://scholar.google.com.hk/citations?user=SSI90d4AAAAJ&hl=en&oi=ao">Lu Qi</a><sup>1,3</sup>
-                </div>
-            <div id="institution">
-                <div><sup>1</sup><a class="link" href="https://www.insta360.com/cn/">Insta360 Research</a></div>
-                <div><sup>2</sup><a class="link" href="https://ucsd.edu/">University of California San Diego</a></div>
-                <div><sup>3</sup><a class="link" href="https://admission.whu.edu.cn/">Wuhan University</a></div>
-                <div><sup>4</sup><a class="link" href="https://www.ucmerced.edu/">University of California, Merced</a></div>
-            </div>
-            <div id="links">
-                <div><a id="arxiv" href="#arxiv">Arxiv</a></div>
-                <div><a id="code" href="https://github.com/Insta360-Research-Team/DAP">Code</a></div>
-            </div>
-            
-            <div style="display: flex; justify-content: center;">
-                <video 
-                  src="assets/result_half_outdoor_1_15s.mp4" 
-                  autoplay 
-                  muted 
-                  loop 
-                  playsinline 
-                  style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);"
-                ></video>
-            </div>
-            
-            <div style="display: flex; justify-content: center;">
-                <video 
-                  src="assets/result_half_outdoor_15s.mp4" 
-                  autoplay 
-                  muted 
-                  loop 
-                  playsinline 
-                  style="width: 100%; border-radius: 12px; box-shadow: 0 4px 20px rgba(0,0,0,0.2);"
-                ></video>
             </div>
 
             <div class="x-section-title"><div class="x-gradient-font">Qualitative Evaluation <span style="font-size: 40px; font-weight:600;"></span></div></div>
@@ -127,9 +151,7 @@
 
             
             
-            <div id="teaser">
-                <div style="width: 100%;"><img src="assets/depth_teaser.png" alt="Depth Teaser" style="width: 100%; height: auto;"></div>
-            </div>
+            
             <div id="abstract" class="x-gradient-block">
                 In this work, we present a panoramic metric depth foundation model that generalizes across diverse scene distances. We explore a data-in-the-loop paradigm from the view of both data construction and framework design. We collect a large-scale dataset by combining public datasets, high-quality synthetic data from our UE5 simulator and text-to-image models, and real panoramic images from the web. To reduce domain gaps between indoor/outdoor and synthetic/real data, we introduce a three-stage pseudo-label curation pipeline to generate reliable ground truth for unlabeled images. For the model, we adopt DINOv3-Large as the backbone for its strong pre-trained generalization, and introduce a plug-and-play range mask head, sharpness-centric optimization, and geometry-centric optimization to improve robustness to varying distances and enforce geometric consistency across views. Experiments on multiple benchmarks (e.g., Stanford2D3D, Matterport3D, and Deep360) demonstrate strong performance and zero-shot generalization, with particularly robust and stable metric predictions in diverse real-world scenes. .
             </div>
