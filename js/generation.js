@@ -29,7 +29,6 @@ var robustness_items = [
 
 // Comparison on scenes with human (14-18)
 var human_items = [
-    { image: "dap_14.png" },
     { image: "dap_15.png" },
     { image: "dap_16.png" },
     { image: "dap_17.png" },
