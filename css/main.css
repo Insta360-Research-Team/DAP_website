@@ -326,10 +326,13 @@ video {
 }
 
 .x-section-title.small {
-    margin: 8px 0px 4px 0px;
-    padding-left: 4px;
-    font-size: 20px;
+    margin: 32px 0px 12px 0px;
+    padding-left: 0px;
+    font-size: 28px;
     font-weight: 700;
+    color: #333;
+    text-align: center;
+    justify-content: center;
 }
 
 .x-note {
