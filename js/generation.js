@@ -1,11 +1,11 @@
 // Comparison on outdoor scenes (01-06)
 var outdoor_items = [
-    { image: "dap_01.png" },
     { image: "dap_02.png" },
     { image: "dap_03.png" },
     { image: "dap_04.png" },
     { image: "dap_05.png" },
     { image: "dap_06.png" },
+    { image: "dap_01.png" },
 ];
 
 // Comparison on indoor scenes (07-08)
