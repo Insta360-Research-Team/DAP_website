@@ -1,44 +1,44 @@
 // Comparison on outdoor scenes (01-06)
 var outdoor_items = [
-    { image: "dap_03.png" },
-    { image: "dap_04.png" },
-    { image: "dap_05.png" },
-    { image: "dap_02.png" },
-    { image: "dap_06.png" },
-    { image: "dap_01.png" },
+    { image: "dap_03.jpg" },
+    { image: "dap_04.jpg" },
+    { image: "dap_05.jpg" },
+    { image: "dap_02.jpg" },
+    { image: "dap_06.jpg" },
+    { image: "dap_01.jpg" },
 ];
 
 // Comparison on indoor scenes (07-08)
 var indoor_items = [
-    { image: "dap_07.png" },
-    { image: "dap_08.png" },
+    { image: "dap_07.jpg" },
+    { image: "dap_08.jpg" },
 ];
 
 // Comparison on Fine-grained Details (09-11)
 var details_items = [
-    { image: "dap_09.png" },
-    { image: "dap_10.png" },
-    { image: "dap_11.png" },
+    { image: "dap_09.jpg" },
+    { image: "dap_10.jpg" },
+    { image: "dap_11.jpg" },
 ];
 
 // Comparison on robustness (12-13)
 var robustness_items = [
-    { image: "dap_12.png" },
-    { image: "dap_13.png" },
+    { image: "dap_12.jpg" },
+    { image: "dap_13.jpg" },
 ];
 
 // Comparison on scenes with human (14-18)
 var human_items = [
-    { image: "dap_15.png" },
-    { image: "dap_16.png" },
-    { image: "dap_17.png" },
-    { image: "dap_18.png" },
+    { image: "dap_15.jpg" },
+    { image: "dap_16.jpg" },
+    { image: "dap_17.jpg" },
+    { image: "dap_18.jpg" },
 ];
 
 // Comparison on scale ability (19-20)
 var scale_items = [
-    { image: "dap_19.png" },
-    { image: "dap_20.png" },
+    { image: "dap_19.jpg" },
+    { image: "dap_20.jpg" },
 ];
 
 // 通用模板函数
